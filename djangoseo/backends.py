@@ -448,7 +448,7 @@ class ModelBackend(MetadataBackend):
             objects = self.get_manager(options)()
 
             def __str__(self):
-                return str(self._content_type)
+                return str(self._content_type.model)
 
             def _process_context(self, context):
                 """ Use the given model instance as context for rendering
@@ -458,7 +458,7 @@ class ModelBackend(MetadataBackend):
                 self.__context = context.get('view_context')
 
             def _populate_from_kwargs(self):
-                return {'content_type': self._content_type}
+                return {'content_type': str(self._content_type.model)}
 
             def _resolve_value(self, name):
                 value = super(ModelMetadataBase, self)._resolve_value(name)
