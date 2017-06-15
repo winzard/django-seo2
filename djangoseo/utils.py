@@ -110,7 +110,7 @@ def escape_tags(value, valid_tags):
     # Allow comments to be hidden
     value = value.replace("&lt;!--", "<!--").replace("--&gt;", "-->")
 
-    return mark_safe(value)
+    return value
 
 
 def _get_seo_content_types(seo_models):
