@@ -201,7 +201,7 @@ class Raw(MetadataField):
         else:
             valid_tags = self.valid_tags
 
-        value = escape_tags(value, valid_tags)
+        # value = escape_tags(value, valid_tags)
 
         if self.head:
             # Remove text before tags
