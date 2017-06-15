@@ -13,6 +13,7 @@ from django.utils.text import capfirst
 from djangoseo.utils import get_seo_content_types
 from djangoseo.systemviews import get_seo_views
 
+from ckeditor.widgets import CKEditorWidget
 
 # TODO Use groups as fieldsets
 
@@ -182,6 +183,9 @@ def get_model_form(metadata_class):
                                           choices=content_type_choices)
 
         class Meta:
+            widgets = {
+                'extra': CKEditorWidget()
+            }
             model = model_class
             fields = _fields
 
@@ -217,6 +221,9 @@ def get_modelinstance_form(metadata_class):
         _object_id = forms.IntegerField(label=capfirst(_("ID")))
 
         class Meta:
+            widgets = {
+                'extra': CKEditorWidget()
+            }
             model = model_class
             fields = _fields
 
@@ -233,6 +240,9 @@ def get_path_form(metadata_class):
 
     class ModelMetadataForm(forms.ModelForm):
         class Meta:
+            widgets = {
+                'extra': CKEditorWidget()
+            }
             model = model_class
             fields = _fields
 
@@ -258,6 +268,9 @@ def get_view_form(metadata_class):
                                   choices=view_choices, required=False)
 
         class Meta:
+            widgets = {
+                'extra': CKEditorWidget()
+            }
             model = model_class
             fields = _fields
 
